@@ -24,13 +24,27 @@ $("#add-employee-btn").on("click", function (event) {
 
     // Creates local "temporary" object for holding train data
   var newTrains = {
-    TrainName: trainName,
-    Destination: destination,
-    NextArrival: firstTrianTime,
-    Frequency: frequency
+    name: trainName,
+    destination: destination,
+    nextArrival: firstTrianTime,
+    frequency: frequency
   };
 
   database.ref().push(newTrains);
 
-  console.log(newTrains.TrainName);
-  console.log(newTrains.Destination);console.log(newTrains.NextArrival);console.log(newTrains.Frequency);
+  console.log(newTrains.name);
+  console.log(newTrains.destination);
+  console.log(newTrains.nextArrival);
+  console.log(newTrains.frequency);
+
+//   clears out text-boxes
+$("#trainNameInput").val("");
+$("#destinationInput").val("");
+$("#firstTrainTimeInput").val("");
+$("#frequencyInput").val("");
+
+
+$("#trainScheduleTable > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" +
+firstTrianTime + "</td><td>" + frequency + "</td><td>");
+
+});
